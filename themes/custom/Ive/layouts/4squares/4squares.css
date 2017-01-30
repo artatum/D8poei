@@ -1,0 +1,23 @@
+ .topleft{
+float:left;
+background:blue;
+width:50%;
+ }
+ .topright{
+float:left;
+background:red;
+width:50%;
+
+}
+ .bottomleft{
+float:left;
+background:yellow;
+width:50%;
+  
+ }
+.bottomright{
+float:left;
+background:green;  
+width:50%;
+ }
+ 

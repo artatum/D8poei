@@ -1,0 +1,4 @@
+fancy_menu.settings:
+  title: Simple Fancy API Example
+  description: A simple form fancy with submit processing.
+  route_name: fancy_menu.settings

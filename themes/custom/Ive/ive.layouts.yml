@@ -1,0 +1,16 @@
+4_squares:
+  label: 4 squares
+  category: ive
+  path: layouts/4squares
+  template: 4squares
+  icon: 4squares.png
+  css: 4squares
+  regions:
+    topleft:
+      label: Topleft
+    topright:
+      label: Topright
+    bottomleft:
+      label: Bottomleft
+    bottomright:
+      label: Bottomright

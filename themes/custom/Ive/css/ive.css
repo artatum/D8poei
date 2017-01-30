@@ -1,0 +1,58 @@
+.site-branding__name a{
+color:orange;
+font-size:2rem;
+}
+
+.page-title{
+color:orange;
+font-size:2rem;
+font-family: Georgia;
+}
+
+.region-sidebar-first h2{
+color:orange;
+font-size:1rem;
+font-family: Georgia;
+text-transform: uppercase;	
+font-style: italic;
+}
+
+.sidebar .block {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.sidebar h2 {
+    border-bottom: 1px solid orange;
+}
+
+#header{
+	background : white!important;
+}
+
+.region-primary-menu .menu a{
+	color:orange;
+font-size:1rem;
+}
+.region-primary-menu .menu a.is-active {
+	color:white;
+font-size:1rem;
+background: orange;
+border-radius:5px;
+}
+#content.page-node-1{
+  width: 100%;
+}
+
+.layout-sidebar-first .page-node-1.main-content {
+    margin-left: 0;
+}
+.drupal8 {
+  width:100%;
+}
+.left-col , .right-col{
+  width:50%;
+  float:left;
+  }
+  .node .column .field--type--image {
+    float: none;
+  }

@@ -1,0 +1,624 @@
+<?php
+global $lol;
+$lol = 'pop';
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use \Drupal\Core\GeneratedUrl;
+
+
+function get_fx_array_from_choice($choice) {
+  $colors = \Drupal::state()->get('frontUX');   
+}
+
+function get_user_fx_array() {
+  // load default settings then loads user items settings that replace defaults
+  //static $default_settings;
+  $fxs_default = get_default_fx_array();
+
+  $fxs_user = \Drupal::state()->get('frontUX');
+  foreach($fxs_user as $key => $value){
+    $fxs_default[$key] = $value;
+  }
+  //ksm($fxs_default);
+  return $fxs_default;
+
+}
+
+function get_default_fx_array() {
+  $fx_array = &drupal_static(__FUNCTION__);
+  if (!isset($fx_array)) {
+    $fx_array = array(
+      1 => array(
+        'top' => '#9b5066',
+        'bottom' => '#e6e8ca0',
+        'font' => '#000000',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'open_sansregular',
+        'fontsize' => '19px',
+        ),
+      2 => array(
+        'top' => '#8b292d',
+        'bottom' => '#f1e293',
+        'font' => '#1b3711',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Lovelo Line Bold',
+        'fontsize' => '21px',
+        ),
+        3 => array(
+        'top' => '#435d10',
+        'bottom' => '#dfca55',
+        'font' => '##f9e6ec',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Lovelo Black',
+        'fontsize' => '25px',
+        ),
+       4 => array(
+        'top' => '#39105d',
+        'bottom' => '#dfca55',
+        'font' => '#f9e6ec',
+        'color4' => '#e53186',
+        'color5' => '#a3da97',
+        'fontfamily' => 'Lombok',
+        'fontsize' => '30px',
+        ),
+       5 => array(
+        'top' => '#0e21a5',
+        'bottom' => '#f8bd90',
+        'font' => '#e8c189',
+        'color4' => '##f5efd8',
+        'color5' => '#000000',
+        'fontfamily' => 'Alcubierre',
+        'fontsize' => '30px',
+        ),
+       6 => array(
+        'top' => '#0a4041',
+        'bottom' => '#f8bd90',
+        'font' => '#f9f7df',
+        'color4' => '#f0ebd3',
+        'color5' => '#000000',
+        'fontfamily' => 'irene-CAPS-thin',
+        'fontsize' => '30px',
+        ),
+       7 => array(
+        'top' => '#0e21a5',
+        'bottom' => '#f8bd90',
+        'font' => '#ebc4e8',
+        'color4' => '#e53186',
+        'color5' => '#000000',
+        'fontfamily' => 'Lora-Italic',
+        'fontsize' => '35px',
+        ),
+       8 => array(
+        'top' => '#a55f0e',
+        'bottom' => '#f8bd90',
+        'font' => '#1f4742',
+        'color4' => '#992855',
+        'color5' => '#ebcad1',
+        'fontfamily' => 'Lora-Italic',
+        'fontsize' => '19px',
+        ),
+       9 => array(
+        'top' => '#351108',
+        'bottom' => '#d9d4b9',
+        'font' => '#e5d379',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Ailerons',
+        'fontsize' => '25px',
+        ),
+       10 => array(
+        'top' => '#063507',
+        'bottom' => '#c8d4a2',
+        'font' => '#ffffff',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Alcubierre',
+        'fontsize' => '18px',
+        ),
+       11 => array(
+        'top' => '#15a50e',
+        'bottom' => '#f8bd90',
+        'font' => '#f14137',
+        'color4' => '#f7f2f4',
+        'color5' => '#000000',
+        'fontfamily' => 'Lora-Italic',
+        'fontsize' => '21px',
+        ),
+       12 => array(
+        'top' => '#4b0f48',
+        'bottom' => '#f8bd90',
+        'font' => '#ea98e4',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Lora-Italic',
+        'fontsize' => '19px',
+        ),
+       13 => array(
+        'top' => '#0e21a5',
+        'bottom' => '#f8bd90',
+        'font' => '#cd1a8e',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Lora-BoldItalic',
+        'fontsize' => '21px',
+        ),
+       14 => array(
+        'top' => '#f75dba',
+        'bottom' => '#6c8c88',
+        'font' => '#c01bb4',
+        'color4' => '#e53186',
+        'color5' => '#000000',
+        'fontfamily' => 'Lombok',
+        'fontsize' => '20px',
+        ),
+       15 => array(
+        'top' => '#0e42a5',
+        'bottom' => '#f8ca90',
+        'font' => '#c01bb4',
+        'color4' => '#e53186',
+        'color5' => '#000000',
+        'fontfamily' => 'Comic Sans MS',
+        'fontsize' => '21px',
+        ),
+      16 => array(
+        'top' => '#4e5587',
+        'bottom' => '#000000',
+        'font' => '#eaefc1',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'LeagueGothic-regular',
+        'fontsize' => '19px',
+        ),
+       17 => array(
+        'top' => '#aab1e0',
+        'bottom' => '#d605ad',
+        'font' => '#f8e3e4',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Alcubierre',
+        'fontsize' => '25px',
+        ),
+      18 => array(
+        'top' => '#192620',
+        'bottom' => '#cd996d',
+        'font' => '#c4c1e8',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Kayak Sans Regular',
+        'fontsize' => '30px',
+        ),
+      19 => array(
+        'top' => '#481115',
+        'bottom' => '#b37e44',
+        'font' => '#880933',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Building-CondensedMedium',
+        'fontsize' => '30px',
+        ),
+      20 => array(
+        'top' => '#6f3a4c',
+        'bottom' => '#d9b9c2',
+        'font' => '#e6e0fb',
+        'color4' => '#000000',
+        'color5' => '#000000',
+        'fontfamily' => 'Arkhip',
+        'fontsize' => '30px',
+        ),
+      0 =>  array (
+    'abyssopelagic' => 'Abyssopelagic',
+    'Ailerons' => 'Ailerons',
+    'Alcubierre' => 'Alcubierre',
+    'Arkhip' => 'Arkhip',
+    'Arial' => 'Arial', 
+    'Aventura' => 'Aventura Bold', 
+    'bohema_regular_alternative' => 'Bohema', 
+    'Building-CondensedMedium' => 'Building', 
+    'Comic Sans MS' =>  'Comic Sans MS',
+    'CovesBold' => 'Coves Bold',
+    'CovesLight' => 'Coves Light',
+    'FacileSans' => 'Facile Sans', 
+    'Georgia' => 'Georgia', 
+    'Impact' => 'Impact' ,
+    'irene-CAPS-thin' => 'Irene Caps Thin' ,
+    'Kayak Sans Regular' => 'Kayak Sans',
+    'King-Basil-Lite' => 'King Basil Lite',
+    'LeagueGothic-Regular' => 'League Gothic',
+    'Lombok' => 'Lombok',
+    'Lora' => 'Lora',
+    'Lora-Italic' => 'Lora Italic',
+    'Lora-Bold' => 'Lora Bold',
+    'Lora-BoldItalic' => 'Lora Bold Italic',
+    'Lovelo Black' => 'Lovelo Black',
+    'Lovelo Line Bold' => 'Lovelo Line Bold',
+    'Lovelo Line Light' => 'Lovelo Line Light',
+    'Lucida Sans Unicode' => 'Lucida Sans Unicode',
+    'open_sansregular' => 'Open Sans',
+    'Palatino' => 'Palatino Linotype',
+    'Times' => 'Times',
+    'Verdana' => 'Verdana',
+        ),
+    );
+  }
+  return ($fx_array);
+}
+
+function fancy_menu_theme_fx_links($variables) {
+  $starting_color = $variables['starting_color'];
+  $ending_color = $variables['ending_color'];
+  $font_color = $variables['font'];
+  $color4 = $variables['color4'];
+  $color5 = $variables['color5'];
+  $fontsize = $variables['fontsize'];
+  //ksm($fontsize);
+  $fontfamily = $variables['fontfamily'];
+  //$fontfamily = 'Georgia, Serif';//'Times new roman';
+//ksm("fx_links GLOBAL PHP font: $font_color");
+  
+  $header_bartik = '<style>#header {
+  background-color: '. $starting_color . '!important;
+  background-image: -webkit-linear-gradient(top, '. $ending_color . ' 0%, '. $starting_color . ' 100%)!important;
+  background-image: linear-gradient(to bottom, '. $ending_color . ' 0%, '. $starting_color . ' 100%)!important;
+}</style>';
+  $degradez = "background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($starting_color), to($ending_color));
+  background-image: -moz-linear-gradient(-90deg, $starting_color, $ending_color);";
+  $msfilter = '-ms-filter: "progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr="'. $starting_color . '", endcolorstr="'. $ending_color . '")\";';
+  $filter = 'filter: progid:dXImageTransform.Microsoft.gradient(enabled="true",startcolorstr=". $starting_color . ",endcolorstr=". $ending_color . ",GradientType=0);'; 
+  $output = ''; 
+  $links = $variables['links'];
+  $class = $variables['classes'];
+  $fxid = $variables['fxid'];
+    $output = ''; 
+    switch ($fxid) {
+     case  '0' :     
+       $output = '<section id="color-1"  style="' . $degradez . '" ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+       foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color . '">' . $link['title'] . '</a>';
+       }
+       $output .= '</nav></section>';
+       break;
+       
+     case '1' : 
+       // \Drupal::state()->set('frontUX', '');
+       $output = '<section id="color-1"  style="' . $degradez . '"  ><style> #block-fancymenuforfun nav a {
+       margin: 15px 15px 15px 15px!important;}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+          foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title'] . '">' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;
+       
+     case '3' :      
+       $output = '<section id="color-1"  style="' . $degradez . '"  ><style>#cl-effect-' . $fxid .' a::after { background:' . $font_color . ';} #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px!important;} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+          foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color  .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title'] . '">' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;
+       
+     case '4' :     
+      $output = '<section id="color-1"  style="' . $degradez . '"><style>#cl-effect-' . $fxid .' a::after { background:'.$font_color . ';} #block-fancymenuforfun nav a {margin: 15px 15px 13px 15px!important;} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break; 
+      
+    case '5' : 
+       $output = '<section id="color-1"  style="' . $degradez . '"  ><style>#cl-effect-' . $fxid .' a span::before { color:'.$color4 . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+          foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title'] . '">' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;
+       
+    case '19' :   
+       $output = '<section id="color-1"  style="' . $degradez . '"  ><style>#cl-effect-19 a:hover span::before {background:'.$color5 . '!important;}#cl-effect-19 a:focus span::before {background:'.$ending_color . '!important;} #block-fancymenuforfun nav a {margin: 15px 15px 16px 15px!important;} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+     foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title']  . '" style="background:' .$color4 . ';">' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;     
+
+      
+    case '10': 
+      $starting_color_2 = multiply_color($starting_color, 0.93);
+      $ending_color_2 = multiply_color($ending_color, 0.94);
+      $span_style = 'style=" background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $ending_color . '), to(' . $starting_color . '));
+      background-image: -moz-linear-gradient(-90deg,' . $ending_color . ',' . $starting_color . ');!important"';
+      $msfilter = '-ms-filter: progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr="' . $starting_color_2 . '", endcolorstr="' . $ending_color_2 . '")';;
+      $filter =  'filter: progid:dXImageTransform.Microsoft.gradient(enabled="true",startcolorstr=' . $starting_color_2 . ',endcolorstr=' . $ending_color_2 . ',GradientType=0)';
+      $before_style =
+      '<style>style="
+          background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color . '), to(' . $ending_color . '));
+          background-image: -moz-linear-gradient(-90deg,' . $starting_color_2 . ',' . $ending_color_2 . ');!important"';    
+      $before_style .= $msfilter . $filter . ' </style>';
+
+      $output = '<section id="color-1"  style="' . $degradez . '"  ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      $output .= '<style>#block-fancymenuforfun nav a {margin: 15px 15px 12px 15px!important;} a span::before{ color:'. $font_color . '!important;
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));
+        background-image: -moz-linear-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));'
+      . $msfilter . $filter . '}
+      </style>';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title'] . '"' . $span_style . '>' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;
+       
+    case '9' : 
+        $output = '<section id="color-1"  style="' . $degradez . '" ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span>' . $link['title'] . '</span><span>' .  $link['title'] . '</span></a>';
+        }
+        $output .= '</nav></section>';
+        break;
+
+    case '2' : 
+        $starting_color_2 = multiply_color($starting_color, 0.93);
+        $ending_color_2 = multiply_color($ending_color, 0.94);
+        $span_style = 'style=" background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $ending_color . '), to(' . $starting_color . '));
+        background-image: -moz-linear-gradient(-90deg,' . $ending_color . ',' . $starting_color . ');!important"';
+        $msfilter = '-ms-filter: progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr="' . $starting_color_2 . '", endcolorstr="' . $ending_color_2 . '")';;
+        $filter =  'filter: progid:dXImageTransform.Microsoft.gradient(enabled="true",startcolorstr=' . $starting_color_2 . ',endcolorstr=' . $ending_color_2 . ',GradientType=0)';
+        $before_style =
+        '<style>style="
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color . '), to(' . $ending_color . '));
+            background-image: -moz-linear-gradient(-90deg,' . $starting_color_2 . ',' . $ending_color_2 . ');!important"';    
+        $before_style .= $msfilter . $filter . ' </style>';
+        $output = '<section id="color-1"  style="' . $degradez . '"  ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+        $output .= '<style>#block-fancymenuforfun nav a {margin: 15px 15px 15px 15px!important;} a span::before{ color:'. $font_color . ';
+          background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));
+          background-image: -moz-linear-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));'
+        . $msfilter . $filter . '}
+        </style>';
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';"><span class="data-hover" data-hover="'.$link['title'] . '"' . $span_style . '>' . $link['title'] . '</span></a>';
+        }
+        $output .= '</nav></section>';
+        break;
+ 
+
+      
+      case '6' : 
+      case '7' :  
+        $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 17px 15px;} .cl-effect-'. $fxid .' a::before, .cl-effect-'. $fxid .' a::after {	background: '.$color4 . ';} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+        
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';">'. $link['title'] . '</a>';
+        }
+        $output .= '</nav></section>';
+        break;
+            
+        case '8' :   
+        $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px;} .cl-effect-8 a::before {	border: 3px solid ' .$color4 . ';} 
+  .cl-effect-8 a::after {	border: 3px solid ' .$color5 . ';} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';">'. $link['title'] . '</a>';
+        }
+        $output .= '</nav></section>';
+        break;
+    case '11' : 
+     $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px;} .cl-effect-'. $fxid .' a { 	border-top: 2px solid '. $font_color . ';} .cl-effect-11 a::before {	border-bottom: 3px solid ' . $color4 . '; color:' . $color4 . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';font-weight: 400;}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="font-weight: 400;color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . ';">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break;    
+        
+    case '12' :     
+    case '13' :     
+       $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px;}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break; 
+    case '14' : 
+     $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px;} .cl-effect-14 a::before, .cl-effect-14 a::after {	background: ' . $color4 . ';}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break; 
+  
+    case '15' : 
+        $output = '<section id="color-1"  style="' . $degradez . '" ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+         $output .= '<style>
+         #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px!important;}
+        a::before  {
+          color:'. $font_color . '!important;
+          }
+        </style>';
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" data-hover="' .$link['title'] . '" style="color:'.$color4 . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '"!important;><span>'. $link['title'] . '</span></a>';
+        }
+        $output .= '</nav></section>';
+        break;
+        
+    case '18' : 
+      $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 13px 15px;} .cl-effect-'. $fxid .' a::before,  .cl-effect-'. $fxid .' a::after { background:'. $font_color . '!important;}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break; 
+      
+ 
+
+    case '16' : 
+   /*   $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 17px 15px;} .cl-effect-16 a::before {	color: ' . $color4 . ';}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';*/
+      $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 17px 15px;} .cl-effect-'. $fxid .' a::before {	background: transparent;} </style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '">'. $link['title'] . '</a>';
+      }
+      $output .= '</nav></section>';
+      break; 
+      
+    case '17' : 
+      $output = '<section id="color-1"  style="' . $degradez . '"><style> #block-fancymenuforfun nav a {margin: 15px 15px 15px 15px;}</style><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+        foreach ($links as $link) {
+          $output .= '<a href="'. $link['href'] . '" data-hover="'.$link['title'] . '" style="color:'.$font_color . ';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '">'. $link['title'] . '</a>';
+        }
+        $output .= '</nav></section>';
+        break;   
+                 
+      
+    case '20':
+       $starting_color_2 = multiply_color($starting_color, 0.93);
+       $ending_color_2 = multiply_color($ending_color, 0.94);
+      $span_style = 'style=" background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $ending_color . '), to(' . $starting_color . '));
+      background-image: -moz-linear-gradient(-90deg,' . $ending_color . ',' . $starting_color . ');!important"';
+      $msfilter = '-ms-filter: progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr="' . $starting_color_2 . '", endcolorstr="' . $ending_color_2 . '")';;
+      $filter =  'filter: progid:dXImageTransform.Microsoft.gradient(enabled="true",startcolorstr=' . $starting_color_2 . ',endcolorstr=' . $ending_color_2 . ',GradientType=0)';
+      /*$before_style =
+      '<style>style="
+          background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color . '), to(' . $ending_color . '));
+          background-image: -moz-linear-gradient(-90deg,' . $starting_color_2 . ',' . $ending_color_2 . ');!important"';    
+      $before_style .= $msfilter . $filter . ' </style>';*/
+      $output = '<section id="color-1"  style="' . $degradez . '"  ><nav' . new Attribute($class) . ' id="cl-effect-'. $fxid .'">';
+      $output .= '<style>#block-fancymenuforfun nav a {margin-bottom: 15px!important;} .cl-effect-20 a span::before{ color:'. $font_color . ';
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));
+        background-image: -moz-linear-gradient(linear, 0% 0%, 0% 100%, from(' . $starting_color_2 . '), to(' . $ending_color_2 . '));'
+      . $msfilter . $filter . '}
+      </style>';
+      foreach ($links as $link) {
+        $output .= '<a href="'. $link['href'] . '" style="color:'.$font_color .';font-family: ' . $fontfamily . ';font-size: ' . $fontsize . '"><span class="data-hover" data-hover="'.$link['title'] . '"' . $span_style . '>' . $link['title'] . '</span></a>';
+       }
+       $output .= '</nav></section>';
+       break;
+      
+   }
+   $output = $header_bartik . ' ' . $output;
+  return $output;
+}
+
+function fancy_menu_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'fancy_form') {
+    $form['#attached']['library'][] = 'fancy_menu/fancy-color'; 
+    $form['#attached']['library'][] = 'fancy_menu/fancy-picker'; 
+    $form['#attached']['library'][] = 'fancy_menu/tympanus'; 
+  };
+}
+
+function get_fx() {
+  $fx = array();
+  $fx['fxid'] = \Drupal::state()->get('favorite_frontUX') ?: '19';   
+  return $fx['fxid'];
+}
+
+function get_menu_items($menu_name) {
+  $menu_tree = \Drupal::menuTree();
+// Build the typical default set of menu tree parameters.
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+// Load the tree based on this set of parameters.
+  $tree = $menu_tree->load($menu_name, $parameters);
+// Transform the tree using the manipulators you want.
+  $manipulators = array(
+  // Only show links that are accessible for the current user.
+    array('callable' => 'menu.default_tree_manipulators:checkAccess'),
+  // Use the default sorting of menu links.
+    array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
+  );
+  $tree = $menu_tree->transform($tree, $manipulators);
+  // Finally, build a renderable array from the transformed tree.
+  $menu_tmp = $menu_tree->build($tree);
+  //ksm ($menu_tmp);       
+  $menu = array();
+  foreach ($menu_tmp['#items'] as $item) {
+    if ($item['url']->getRouteName() == '<front>') {
+    // $menu[] = [$item['title'] => $item['url']->getRouteName()];
+     $menu[$item['title']] = '';
+    } else {
+    // $menu[] = [$item['title'] => $item['url']->getInternalPath()];
+     $menu[$item['title']] = $item['url']->getInternalPath();
+    }
+  }
+  return $menu;
+}
+
+function prepare_block_items($links_array) {
+
+    global $base_url;
+    $items = array (); 
+    $class = 'cl-effect-' . get_fx();
+
+    foreach ($links_array as $title => $path) {
+      $title = $title;
+      $url = $base_url . '/' . $path;
+      $url = Url::FromUri($url);
+      $items[] = array ( 
+        'title' => $title,
+        'href' => $url->toString(),  
+        'data' => Link::fromTextAndUrl($title, $url),
+        'class' => array($class),
+        'data-hover' => array($title),
+        );
+    }
+    return $items;
+}
+
+function multiply_color ($color, $number) {
+  $hexred = substr($color,1,2);
+  $decred = hexdec($hexred);
+  $decred = $decred * $number;
+  $intred = min(array(round($decred,0),'255'));
+  $hexred = dechex($intred);
+  $red = $hexred;
+  if (strlen($red) < 2) {
+    $red = sprintf("%02d", $red);
+  }
+  $hexred = substr($color,3,2);
+  $decred = hexdec($hexred);
+  $decred = $decred * $number;
+  $intred = min(array(round($decred,0),'255'));
+  $hexred = dechex($intred);
+  $green = $hexred;
+  if (strlen($green) < 2) {
+   $green = sprintf("%02d", $green);
+  } 
+  $blue = dechex(round(hexdec(substr($color,5,2)) * $number,0));
+  $hexred = substr($color,5,2);
+  $decred = hexdec($hexred);
+  $decred = $decred * $number;
+  $intred = min(array(round($decred,0),'255'));
+  $hexred2 = dechex($intred);
+  $blue = $hexred2;
+  if (strlen($blue) < 2) {
+   $blue = sprintf("%02d", $blue);
+  } 
+  $color_before = $color;
+  $color = '#' . $red . $green . $blue;   
+  return $color;
+}
+
+function fancy_menu_theme_registry_alter(&$theme_registry) {
+  //$theme_registry['fx_links']['theme path'] = drupal_get_path('module', 'frontUX');
+   $theme_registry['fx_links']['function'] = 'fancy_menu_theme_fx_links';
+
+}
+
+function fancy_menu_theme($existing, $type, $theme, $path){
+  return array(
+
+     'fx_links' => array( 
+        'variables' => array(
+          'starting_color' => 'r',
+          'ending_color' => '',
+          'font' => '',
+          'fxid' => 19,
+          'color4' => '',
+          'color5' => '',
+          'links' => array(),  
+          'classes' => array(),
+          'fontsize' => array(),
+          'fontfamily' => array(),
+        ),
+      )
+     
+    );
+}

@@ -1,0 +1,6 @@
+name: Fancy Menu 
+type: module
+description: Fancy Menu for Drupal.
+package: Webographe
+core: 8.x
+

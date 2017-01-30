@@ -1,0 +1,34 @@
+fancy-color:
+  version: 1.x
+  js:
+    js/fancy/fancy-color.js: {}
+  css:
+    theme:
+      js/fancy/fancy-color.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+fancy-picker:
+  version: 1.x
+  js:
+    js/farbtastic/farbtastic.js: {}
+  css:
+    theme:
+      js/farbtastic/farbtastic.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+tympanus:
+  version: 1.x
+  js:
+    js/tympanus/tympanus.js: {}
+  css:
+    theme:
+      js/tympanus/component.css: {}
+      js/tympanus/normalize.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
